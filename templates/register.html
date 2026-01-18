@@ -1,0 +1,28 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+<div class="hdfc-card">
+  <h2>HDFC Bank</h2>
+  <p>Create New Account</p>
+
+  <form method="POST">
+    <input name="name" required placeholder="Full Name">
+    <input type="email" name="email" required placeholder="Email">
+    <input 
+  type="password" 
+  name="password" 
+  required 
+  minlength="6"
+  placeholder="Password (min 6 characters)">
+
+
+    <small class="password-note">
+      Password must contain uppercase, lowercase, number & symbol
+    </small>
+
+    <button type="submit">Register</button>
+  </form>
+
+  <a href="/login">Already have an account? Login</a>
+</div>

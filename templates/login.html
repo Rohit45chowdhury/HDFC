@@ -1,0 +1,22 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+<div class="hdfc-card">
+  <h2>HDFC Bank</h2>
+  <p>Secure Login Portal</p>
+
+  <form method="POST">
+    <input type="email" name="email" required placeholder="Email">
+    <input 
+  type="password" 
+  name="password" 
+  required 
+  minlength="6"
+  placeholder="Password (min 6 characters)">
+
+    <button type="submit">Login</button>
+  </form>
+
+  <a href="/register">New user? Register here</a>
+</div>

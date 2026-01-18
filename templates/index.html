@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Smart Loan Eligibility System</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="container">
+<h1>🏦 Smart Loan Eligibility System</h1>
+
+<!-- ================= LOAN FORM ================= -->
+<h2>💰 Loan Eligibility</h2>
+<form method="POST" action="/predict-loan">
+
+<label>Loan Type</label>
+<select name="loan_type" required>
+<option>Business Loan</option>
+<option>Car Loan</option>
+<option>Education Loan</option>
+<option>Personal Loan</option>
+<option>Home Loan</option>
+</select>
+
+<label>Loan Amount</label>
+<input type="number" name="loan_amount" value="{{ form_data.get('loan_amount','') }}" required>
+
+<label>Tenure (Months)</label>
+<input type="number" name="tenure" value="{{ form_data.get('tenure','') }}" required>
+
+<label>Employment</label>
+<select name="employment">
+<option>Salaried</option>
+<option>Self-Employed</option>
+<option>Business Owner</option>
+<option>Unemployed</option>
+<option>Student</option>
+<option>Retired</option>
+</select>
+
+<label>Monthly Income</label>
+<input type="number" name="income" value="{{ form_data.get('income','') }}" required>
+
+<label>CIBIL Score</label>
+<input type="number" name="cibil" value="{{ form_data.get('cibil','') }}" required>
+
+<label>Property</label>
+<select name="property">
+<option>Owned</option>
+<option>Rented</option>
+<option>Jointly Owned</option>
+</select>
+
+<label>Age</label>
+<input type="number" name="age" value="{{ form_data.get('age','') }}" required>
+
+<label>Gender</label>
+<select name="gender">
+<option>Male</option>
+<option>Female</option>
+<option>Other</option>
+</select>
+
+<button type="submit">Check Eligibility</button>
+</form>
+
+{% if prediction %}
+<div class="result-card">
+    <div class="result-header">
+        <h3>📄 Loan Decision</h3>
+        <span class="status {{ 'approved' if prediction == 'Approved' else 'rejected' }}">
+            {{ prediction }}
+        </span>
+    </div>
+
+    <div class="result-body">
+        <div class="result-item">
+            <span>📊 Review Score</span>
+            <strong>{{ review_score }}/100</strong>
+        </div>
+
+        <div class="result-item">
+            <span>⚠️ Loan Fraud Risk</span>
+            <strong>{{ loan_fraud }}%</strong>
+        </div>
+    </div>
+
+    <div class="result-footer">
+        {% if loan_fraud > 50 %}
+            <p class="danger">🚨 High Risk – Manual Verification Required</p>
+        {% else %}
+            <p class="safe">✅ Low Risk – Safe to Proceed</p>
+        {% endif %}
+    </div>
+</div>
+{% endif %}
+
+<hr>
+
+<!-- ================= DOCUMENT FORM ================= -->
+<h2>📄 Document Verification</h2>
+
+<!-- ✅ Upload success message (CLIENT SIDE) -->
+<p id="upload-msg" class="success-message" style="display:none;">
+    ✅ Document uploaded successfully
+</p>
+
+<form method="POST" action="/verify" enctype="multipart/form-data" class="verify-form">
+
+    <label class="upload-label">
+        📄 Upload Bank Statement
+        <input 
+            type="file" 
+            name="document" 
+            required 
+            hidden
+            onchange="showUploadMessage()"
+        >
+    </label>
+
+    <button type="submit">Verify Document</button>
+    <a id="home_btn" class="upload-label" href="{{ url_for('home') }}">Home</a>
+
+</form>
+
+{% if doc_fraud is not none %}
+<div class="circle" data-percent="{{ doc_fraud }}">
+    <span>{{ doc_fraud }}%</span>
+    <svg width="120" height="120">
+        <circle cx="60" cy="60" r="50"></circle>
+        <circle class="progress" cx="60" cy="60" r="50"></circle>
+    </svg>
+</div>
+
+{% if doc_fraud > 50 %}
+    <p class="high-risk">⚠ High Risk Document</p>
+{% else %}
+    <p class="low-risk">✔ Document Looks Genuine</p>
+{% endif %}
+{% endif %}
+
+{% if error %}
+<p style="color:red">{{ error }}</p>
+{% endif %}
+
+</div>
+
+<!-- ================= JS ================= -->
+<script>
+function showUploadMessage() {
+    document.getElementById("upload-msg").style.display = "block";
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll('.circle').forEach(circle => {
+        const percent = circle.getAttribute('data-percent');
+        const progress = circle.querySelector('circle.progress');
+        const radius = progress.r.baseVal.value;
+        const circumference = 2 * Math.PI * radius;
+
+        progress.style.strokeDasharray = circumference;
+        progress.style.strokeDashoffset =
+            circumference - (circumference * percent / 100);
+    });
+});
+</script>
+
+</body>
+</html>

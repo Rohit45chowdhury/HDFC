@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HDFC Bank Clone</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='hdfc.css') }}">
+
+</head>
+<body>
+
+<!-- 🔵 TOP NAVBAR -->
+<header class="top-bar">
+    <div class="logo">HDFC BANK</div>
+   <nav class="top-nav">
+    <input type="checkbox" id="menu-toggle" class="menu-toggle">
+    <label for="menu-toggle" class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </label>
+
+    <div class="nav-links">
+        <a href="{{ url_for('loansure') }}">LoanSure</a>
+        <a href="{{ url_for('credit_secure') }}">CC Fraud-Detector</a>
+        <a href="{{ url_for('sms') }}">SMS Fraud-Detector</a>
+    </div>
+</nav>
+    <a href="/login" class="login-btn">LOGIN/LOGOUT</a>
+
+</header>
+
+<!-- 🔷 SECOND NAV -->
+<div class="sub-bar">
+    <!-- <a href="#">Discover Products</a>
+    <a href="#">Services</a>
+    <a href="#">Better Money Choices®</a>
+    <a href="#">Offers</a> -->
+    <input type="text" placeholder="Search...">
+</div>
+
+<!-- 🖼 HERO SECTION -->
+<section class="hero">
+    <div class="hero-text">
+        <h1>Experience<br>HDFC Bank<br>Differently</h1>
+        <p>Introducing the New<br>
+           HDFC Bank App | NetBanking | Website
+        </p>
+
+        <!-- <div class="hero-buttons">
+            <button class="primary">MobileApp →</button>
+            <button class="secondary">NetBanking →</button>
+        </div> -->
+    </div>
+
+    <!-- 📦 PRODUCT BOX -->
+    <div class="product-graph">
+    <h3>Products Overview</h3>
+
+    <div class="circle-chart">
+        <svg width="160" height="160">
+            <circle cx="80" cy="80" r="70" class="bg" />
+            <circle cx="80" cy="80" r="70" class="loan" />
+        </svg>
+        <div class="percent">
+            72%
+            <span>Approved</span>
+        </div>
+    </div>
+
+    <div class="legend">
+        <p><span class="dot blue"></span> Loans</p>
+        <p><span class="dot green"></span> Credit Cards</p>
+        <p><span class="dot orange"></span> Insurance</p>
+    </div>
+     
+    <a href="{{ url_for('loansure') }}" class="apply-btn">Apply Now</a>
+
+ </div>
+
+</section>
+
+<!-- 🔻 FOOTER -->
+<footer class="footer">
+    <div class="footer-container">
+
+        <!-- <div class="footer-section">
+            <h4>Products</h4>
+            <a href="#">Loans</a>
+            <a href="#">Credit Cards</a>
+            <a href="#">Insurance</a>
+            <a href="#">Deposits</a>
+        </div> -->
+
+        <div class="footer-section">
+            <h4>Services</h4>
+            <a href="#">NetBanking</a>
+            <a href="#">Mobile Banking</a>
+            <a href="#">Fund Transfer</a>
+            <a href="#">Bill Payments</a>
+        </div>
+
+        <div class="footer-section">
+            <h4>Support</h4>
+            <a href="#">Customer Care</a>
+            <a href="#">Branch Locator</a>
+            <a href="#">FAQs</a>
+            <a href="#">Report Fraud</a>
+        </div>
+
+        <div class="footer-section">
+            <h4>About HDFC Bank</h4>
+            <a href="#">About Us</a>
+            <a href="#">Careers</a>
+            <a href="#">Investor Relations</a>
+            <a href="#">Media</a>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        © 2026 HDFC Bank Clone | Designed for Educational Purpose
+    </div>
+</footer>
+
+
+</body>
+</html>

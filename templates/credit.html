@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Credit Card Fraud Detection</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='credit.css') }}">
+</head>
+<body>
+
+<div class="container">
+    <h1>💳 Credit Card Fraud Detection</h1>
+
+    <form method="POST">
+        <input type="number" name="amt" placeholder="Transaction Amount" required>
+
+        <select name="gender">
+            <option value="1">Male</option>
+            <option value="0">Female</option>
+        </select>
+
+        <input type="number" name="distance_km" placeholder="Distance (km)" required>
+
+        <select name="city_pop_level">
+            <option value="0">Low Population</option>
+            <option value="1">Medium Population</option>
+            <option value="2">High Population</option>
+        </select>
+
+        <input type="number" name="trans_hour" placeholder="Transaction Hour (0-23)" required>
+        
+        <select name="trans_day" required>
+            <option value="">Select Day</option>
+            <option value="0">Monday</option>
+            <option value="1">Tuesday</option>
+            <option value="2">Wednesday</option>
+            <option value="3">Thursday</option>
+            <option value="4">Friday</option>
+            <option value="5">Saturday</option>
+            <option value="6">Sunday</option>
+        </select>
+
+
+        <select name="is_night">
+            <option value="0">Day</option>
+            <option value="1">Night</option>
+        </select>
+
+        <button type="submit">Check Transaction</button>
+        <a id="home_btn" class="upload-label" href="{{ url_for('home') }}">Home</a>
+    </form>
+    
+
+    {% if result %}
+        <div class="result">
+            <h2>Result: {{ result }}</h2>
+            <p>Fraud Probability: {{ "%.2f"|format(probability*100) }}%</p>
+        </div>
+    {% endif %}
+</div>
+
+</body>
+</html>

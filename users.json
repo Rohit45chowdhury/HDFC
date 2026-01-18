@@ -1,0 +1,22 @@
+{
+    "choudharyrohit8454@gmail.com": {
+        "name": "rohit",
+        "password": "scrypt:32768:8:1$D6YCTsYAoiAi1mDs$32a5fad0fc4254bff688989ac878fdd4d21305a91093657a163d7f618f1019db7d8d145b83e880b5432f06f8596cce95c5c31675876695c408d17c2c23391dac"
+    },
+    "test@gmail.com": {
+        "name": "rohit",
+        "password": "scrypt:32768:8:1$dW6h4FmP8y8iUpsc$2200a4340439e35dd9f24e44658452c24fcbca7d39035186375df11e2c665a8e02c9a842772b776ba7189b370ac7f976869a9b92858834c54648db3909dd751a"
+    },
+    "test1@gmail.com": {
+        "name": "rohit",
+        "password": "scrypt:32768:8:1$5ytm7FA9i8FrbAkB$65bfba5333648a697d9959e00b0188a3a97cd441d313e205d376d2ac09fe7eec71dfcad6a7d174e3aa29a570175e97c4d3901915cc12aeb5b677dffec3354059"
+    },
+    "test3@gmail.com": {
+        "name": "rohit",
+        "password": "scrypt:32768:8:1$pUBcqLyibYobaN6G$871643f0b063cb0a46fc4358ff811cdb7a428507f8028c3766cdea56506c4387168228114397a9d323efbe8644ab29275301109bcd77edffb140e363cac9ef39"
+    },
+    "test4@gmail.com": {
+        "name": "rohit",
+        "password": "scrypt:32768:8:1$CFPnzW7I0hMZWtls$bb7e4e39ec9a8735ab90ab83e1b24d1c057e6a1c4f7713356266d3cc48ee8380423ba967aad35fd4085857249893452eb277f39082e5ca67c82cf9a8b828ead4"
+    }
+}

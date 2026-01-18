@@ -1,0 +1,143 @@
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: linear-gradient(135deg, #004a8f, #e6eef6);
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+
+
+/* Main Card */
+.container {
+    width: 90%;
+    max-width: 420px;  /* keeps it from being too wide on desktop */
+    margin: 60px auto;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    border-top: 6px solid #e31837; /* HDFC Red */
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.15);
+    box-sizing: border-box;
+}
+
+/* Heading */
+h1 {
+    text-align: center;
+    color: #004a8f; /* HDFC Blue */
+    margin-bottom: 20px;
+    font-size: 22px;
+}
+
+/* Input Fields */
+form input,
+form select {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 6px;
+    border: 1px solid #ccd6e0;
+    font-size: 14px;
+    background: #f9fbfd;
+    box-sizing: border-box;
+}
+
+form input:focus,
+form select:focus {
+    outline: none;
+    border-color: #004a8f;
+    box-shadow: 0 0 4px rgba(0, 74, 143, 0.3);
+}
+
+/* Button */
+button,
+.upload-label {
+    width: 100%;
+    padding: 12px;
+    background: #004a8f; /* HDFC Blue */
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: all 0.3s ease;
+}
+
+button:hover,
+.upload-label:hover {
+    background: #003366;
+}
+
+/* Result Card */
+.result {
+    margin-top: 25px;
+    padding: 18px;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: 600;
+}
+
+.result h2 {
+    margin-bottom: 10px;
+}
+
+.result.approved {
+    background: #e6f4ea;
+    color: #1e7e34;
+    border-left: 6px solid #1e7e34;
+}
+
+.result.otp {
+    background: #fff3cd;
+    color: #856404;
+    border-left: 6px solid #856404;
+}
+
+.result.blocked {
+    background: #fdecea;
+    color: #b02a37;
+    border-left: 6px solid #b02a37;
+}
+
+/* Home Button */
+#home_btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    margin: 1rem auto;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+    .container {
+        width: 95%;        /* Increased width */
+        max-width: 480px;  /* Slightly larger max width */
+        padding: 30px;     /* Increased padding from 20px */
+        margin: 50px auto; /* Increased margin for spacing */
+    }
+
+    h1 {
+        font-size: 22px;   /* Slightly bigger heading */
+    }
+
+    form input,
+    form select,
+    button,
+    .upload-label {
+        font-size: 15px;   /* Bigger input/buttons for touch */
+        padding: 12px;     /* Increased padding for better touch usability */
+    }
+
+    .result {
+        padding: 18px;     /* More space inside result cards */
+        font-size: 15px;
+    }
+}
+
+
+

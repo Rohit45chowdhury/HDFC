@@ -1,0 +1,307 @@
+/* ===== GLOBAL ===== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: linear-gradient(135deg, #004a8f, #e6eef6);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+/* ===== CONTAINERS ===== */
+.container {
+    width: 420px;
+    max-width: 95%;
+    margin: 40px auto;
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+}
+
+.hdfc-card {
+    width: 100%;
+    max-width: 420px;
+    background: #ffffff;
+    padding: 34px;
+    border-radius: 14px;
+    box-shadow: 0 18px 40px rgba(0, 55, 115, 0.18);
+    border-top: 6px solid #004a8f;
+}
+
+/* ===== HEADINGS ===== */
+h1, .hdfc-card h2 {
+    text-align: center;
+    color: #004a8f;
+}
+
+h1 { font-size: 24px; margin-bottom: 15px; }
+.hdfc-card h2 { font-size: 22px; margin-bottom: 8px; font-weight: 700; }
+
+.hdfc-card p {
+    text-align: center;
+    color: #6b7280;
+    font-size: 14px;
+    margin-bottom: 22px;
+}
+
+/* ===== FORM ELEMENTS ===== */
+label {
+    font-weight: bold;
+    margin-top: 10px;
+    display: block;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 8px;
+    border: 1px solid #cbd5e1;
+    font-size: 15px;
+    transition: 0.2s ease;
+}
+
+input:focus, select:focus, textarea:focus {
+    border-color: #004a8f;
+    box-shadow: 0 0 0 3px rgba(0, 74, 143, 0.15);
+    outline: none;
+}
+
+/* ===== BUTTONS ===== */
+button, .upload-label, .btn {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    border: none;
+    background: #004a8f;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s ease;
+    text-align: center;
+}
+
+#home_btn {
+    display: block;          /* Isse width: 100% aur margin kaam karega */
+    width: 100%;             /* Button poori width lega */
+    box-sizing: border-box;  /* Padding ko width ke andar rakhne ke liye */
+    padding: 12px;
+    margin-bottom: 15px;     /* Dusre elements se gap ke liye */
+    border-radius: 8px;
+    background: #004a8f;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;   /* Link ki underline hatane ke liye */
+    transition: 0.3s ease;
+    cursor: pointer;
+}
+
+#home_btn:hover {
+    background: #003366;     /* Hover karne par thoda dark rang */
+    opacity: 0.9;
+}
+
+button:hover, .upload-label:hover, .btn:hover {
+    background: #003366;
+}
+
+/* ===== RESULT CARDS ===== */
+.result-card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 20px;
+    margin-top: 25px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+    animation: fadeIn 0.6s ease-in-out;
+}
+
+.result-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+.result-header h3 { margin: 0; font-size: 20px; color: #333; }
+
+.result-body {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.result-item {
+    background: #f8f9fb;
+    padding: 14px;
+    border-radius: 12px;
+    width: 48%;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.result-item span { display: block; font-size: 14px; color: #777; }
+.result-item strong { font-size: 20px; color: #111; }
+
+.result-footer { margin-top: 20px; text-align: center; font-weight: bold; }
+.safe { color: #1b8f5a; }
+.danger { color: #c0392b; }
+
+/* ===== STATUS BADGES ===== */
+.status {
+    padding: 6px 14px;
+    border-radius: 30px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.status.approved { background: #e6f9f0; color: #1b8f5a; }
+.status.rejected { background: #ffecec; color: #c0392b; }
+
+/* ===== RISK LABELS ===== */
+.high-risk {
+    color: #b71c1c;
+    background: #fdecea;
+    border: 1px solid #f5c6cb;
+    padding: 10px 14px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 15px;
+    display: inline-block;
+    margin-top: 10px;
+    animation: pulse 1.5s infinite;
+}
+
+.low-risk {
+    color: #1b5e20;
+    background: #edf7ed;
+    border: 1px solid #c3e6cb;
+    padding: 10px 14px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 15px;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+/* ===== CIRCLE PROGRESS ===== */
+.circle {
+    width: 120px;
+    height: 120px;
+    position: relative;
+    margin: 20px auto;
+}
+.circle svg { transform: rotate(-90deg); }
+.circle circle { fill: none; stroke-width: 10; stroke: #eee; }
+.circle circle.progress {
+    fill: none; stroke-width: 10; stroke: orange;
+    stroke-linecap: round;
+    stroke-dasharray: 314;
+    stroke-dashoffset: 314;
+    transition: stroke-dashoffset 1s ease;
+}
+.circle span {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: bold;
+    font-size: 20px;
+}
+
+/* ===== ANIMATION ===== */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(183, 28, 28, 0.4); }
+    70% { box-shadow: 0 0 0 8px rgba(183, 28, 28, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(183, 28, 28, 0); }
+}
+
+/* ===== VERIFY FORM ===== */
+.verify-form { max-width: 400px; margin: 20px auto; padding: 20px; border-radius: 10px; background: #fff; box-shadow: 0 6px 20px rgba(0,0,0,0.1); text-align: center; }
+
+.verify-form input[type="file"] {
+    width: 90%; padding: 10px; margin-bottom: 15px; border-radius: 8px; cursor: pointer; font-size: 14px; background: #004a8f; color: white; border: none;
+}
+
+/* ===== SUCCESS MESSAGE ===== */
+.success-message { margin-top: 10px; padding: 10px; background-color: #d4edda; border: 1px solid #c3e6cb; color: #155724; border-radius: 5px; font-weight: bold; }
+
+/* ===== RESPONSIVE MEDIA QUERIES ===== */
+
+/* Tablet (≤768px) */
+@media (max-width: 768px) {
+    .container, .hdfc-card, .verify-form {
+        width: 90%;
+        padding: 20px;
+    }
+    h1, .hdfc-card h2 { font-size: 20px; }
+    input, select, textarea, button, .upload-label, .btn { font-size: 15px; padding: 10px; }
+    .result-item { width: 48%; }
+}
+
+/* Mobile (≤480px) */
+@media (max-width: 480px) {
+    .container, .hdfc-card, .verify-form {
+        width: 95%;
+        padding: 15px;
+    }
+    h1, .hdfc-card h2 { font-size: 18px; }
+    input, select, textarea, button, .upload-label, .btn { font-size: 14px; padding: 8px; }
+    .result-item { width: 100%; margin-bottom: 12px; }
+    .high-risk, .low-risk { font-size: 14px; padding: 8px 10px; }
+    .circle { width: 100px; height: 100px; }
+    .circle span { font-size: 18px; text-align: center;}
+
+     .upload-label {
+    display: inline-block;
+    padding: 10px 18px;
+    font-size: 15px;
+    text-decoration: none;
+    border-radius: 6px;
+    background: #004a8f;
+    color: #fff;
+    transition: all 0.3s ease;
+   }
+
+    button,
+    .upload-label,
+    .btn {
+        margin-bottom: 10px;   
+        width: 100%;          
+    }
+     .circle {
+    width: 150px;           
+    height: 150px;          
+    border-radius: 50%;
+    display: flex;          
+    justify-content: center; 
+    align-items: center;    
+    position: relative;
+    
+  }
+
+  .circle span {
+    font-size: 24px;
+    font-weight: bold;
+  }
+
+
+
+}
