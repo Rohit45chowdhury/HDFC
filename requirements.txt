@@ -1,8 +1,0 @@
-Flask
-pandas
-pytesseract
-pdf2image
-Werkzeug
-Pillow
-nltk
-gunicorn
